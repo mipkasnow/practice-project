@@ -1,0 +1,10 @@
+{
+  "itemsPerPage": 20,
+  "page": 0,
+  "search": "9 мая",
+  "searchByField": {},
+  "addParams": {
+    "titleSize": 10000,
+    "contentSize": 10000
+  }
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Frontend.Support" thread-count="2" parallel="classes">
+
+    <listeners>
+        <listener class-name="common.AnnotationTransformer"/>
+    </listeners>
+
+    <test name="Тесты саппорта" thread-count="2" parallel="methods">
+        <classes>
+            <class name="frontend.support.SupportNavigationTests"/>
+            <class name="frontend.support.SupportSuppliersTests"/>
+        </classes>
+    </test>
+
+</suite>
+
+
+
+
+
+
+
+
+
+
+
+

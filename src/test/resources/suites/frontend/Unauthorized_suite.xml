@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Frontend.Unauthorized" thread-count="7" parallel="classes">
+
+    <listeners>
+        <listener class-name="common.AnnotationTransformer"/>
+    </listeners>
+
+    <test name="Тесты открытой части сайта" thread-count="7" parallel="methods">
+        <classes>
+            <class name="frontend.unauthorized.UnauthorizedNavigationTests"/>
+            <class name="frontend.unauthorized.UnauthorizedSearchTests"/>
+        </classes>
+    </test>
+
+</suite>
