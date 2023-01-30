@@ -14,8 +14,7 @@ import static backend.spec.CustomAllureRestListener.withCustomTemplates;
 import static io.restassured.filter.log.LogDetail.BODY;
 import static io.restassured.filter.log.LogDetail.URI;
 import static io.restassured.http.ContentType.JSON;
-import static org.hamcrest.Matchers.anyOf;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 
 public class Specification {
 
@@ -28,7 +27,6 @@ public class Specification {
                 .setContentType(JSON)
                 .addHeader("type-shop", "rzd")
                 .build()
-                .relaxedHTTPSValidation()
                 .filters(
                         new RequestLoggingFilter(URI),
                         new RequestLoggingFilter(BODY),
@@ -43,6 +41,7 @@ public class Specification {
                                 is(200),
                                 is(201)
                         ))
+                .expectResponseTime(lessThan(5000L))
                 .build();
     }
 

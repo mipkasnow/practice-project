@@ -14,8 +14,8 @@ def allureVersion = "2.20.0",
     assertJVersion = "3.23.1",
     aspectjVersion = "1.9.9.1",
     ownerVersion = "1.0.12",
-    selenideVersion = "6.11.0",
-    testNGVersion = "7.5"
+    selenideVersion = "6.9.0",
+    testNGVersion = "7.7.1"
 
 allure
         {

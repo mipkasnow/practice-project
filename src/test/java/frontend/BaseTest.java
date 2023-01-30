@@ -1,20 +1,16 @@
 package frontend;
 
-import backend.context.Context;
 import backend.scenario.ApiScenario;
 import backend.spec.Specification;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import common.AllureAttach;
 import common.CredentialsConfig;
 import common.RetryAnalyzer;
 import frontend.helpers.MyFactory;
-import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import io.qameta.allure.selenide.LogType;
 import org.aeonbits.owner.ConfigFactory;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestContext;
 import org.testng.ITestNGMethod;
 import org.testng.annotations.AfterMethod;
@@ -50,16 +46,12 @@ public class BaseTest {
 
     private void selenideConfig() {
         Configuration.browser = MyFactory.class.getName();
-        Configuration.headless = false;
         Configuration.timeout = 12000;
-        Configuration.pageLoadStrategy = "eager";
         Configuration.fastSetValue = true;
         Configuration.baseUrl = baseUrl;
+        Configuration.headless = true;
+        Configuration.browserSize = "1920x1080";
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("start-maximized");
-        Configuration.browserCapabilities = options;
-        Configuration.browserSize = null;
 
         SelenideLogger.addListener(
                 "AllureSelenide", new AllureSelenide()
@@ -79,10 +71,5 @@ public class BaseTest {
                 "      }\n" +
                 "    \n" +
                 "      document.addEventListener('click', onClick);");
-    }
-
-    @Step("Авторизация саппорта через подкладывание токена в session storage")
-    protected void authSupportViaSessionStorage() {
-        Selenide.sessionStorage().setItem("key", Context.tokenSupport);
     }
 }

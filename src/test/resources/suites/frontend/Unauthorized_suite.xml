@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Frontend.Unauthorized" thread-count="7" parallel="classes">
+<suite name="Frontend.Unauthorized">
 
     <listeners>
         <listener class-name="common.AnnotationTransformer"/>

@@ -1,5 +1,7 @@
 package frontend.support;
 
+import backend.context.Context;
+import com.codeborne.selenide.Selenide;
 import frontend.BaseTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -16,6 +18,6 @@ public class SupportBaseTest extends BaseTest {
     @BeforeMethod
     public void authSupport() {
         open("");
-        authSupportViaSessionStorage();
+        Selenide.sessionStorage().setItem("key", Context.tokenSupport);
     }
 }

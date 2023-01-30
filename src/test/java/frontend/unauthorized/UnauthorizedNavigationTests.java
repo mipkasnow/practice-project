@@ -6,8 +6,7 @@ import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 @Epic("UI тесты")
 @Feature("Тесты открытой части сайта")
@@ -21,6 +20,7 @@ public class UnauthorizedNavigationTests extends BaseTest {
         open("");
         $("#login-btn").click();
         $("[ng-click*='showLoginForm']").should(appear);
+        sleep(3000);
     }
 
     @Test(description = "Открываем страницу закупок и проверяем наличие рекламного баннера")

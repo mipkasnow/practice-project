@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Regression">
+<suite name="Regression" thread-count="9" parallel="tests">
 
-    <suite-files>
-        <suite-file path="frontend/Support_suite.xml"/>
-        <suite-file path="frontend/Unauthorized_suite.xml"/>
-    </suite-files>
+    <listeners>
+        <listener class-name="common.AnnotationTransformer"/>
+    </listeners>
+
+    <test name="Тесты саппорта" thread-count="2" parallel="methods">
+        <classes>
+            <class name="frontend.support.SupportNavigationTests"/>
+            <class name="frontend.support.SupportSuppliersTests"/>
+        </classes>
+    </test>
+
+    <test name="Тесты открытой части сайта" thread-count="7" parallel="methods">
+        <classes>
+            <class name="frontend.unauthorized.UnauthorizedNavigationTests"/>
+            <class name="frontend.unauthorized.UnauthorizedSearchTests"/>
+        </classes>
+    </test>
 
 </suite>
 
