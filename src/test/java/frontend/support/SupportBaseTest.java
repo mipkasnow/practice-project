@@ -18,6 +18,7 @@ public class SupportBaseTest extends BaseTest {
     @BeforeMethod
     public void authSupport() {
         open("");
+        visualizeMouseClick();
         Selenide.sessionStorage().setItem("key", Context.tokenSupport);
     }
 }
